@@ -21,7 +21,7 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(124, 106, 247, 0.18) 0%,
+    rgba(15, 155, 215, 0.15) 0%,
     transparent 70%
   );
   pointer-events: none;
@@ -43,7 +43,7 @@
   text-transform: uppercase;
   color: var(--color-primary);
   background: var(--color-primary-glow);
-  border: 1px solid rgba(124, 106, 247, 0.3);
+  border: 1px solid rgba(15, 155, 215, 0.35);
   padding: 0.3rem 0.9rem;
   border-radius: 999px;
   margin-bottom: 1.75rem;
@@ -62,7 +62,7 @@
   background: linear-gradient(
     135deg,
     var(--color-primary) 0%,
-    #a78bfa 50%,
+    #5bd4f0 50%,
     var(--color-accent) 100%
   );
   -webkit-background-clip: text;
