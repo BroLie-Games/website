@@ -7,21 +7,22 @@
 }
 
 :root {
-  --color-bg: #07090e;
-  --color-bg-alt: #0b0f18;
-  --color-surface: #0e1622;
-  --color-border: #182840;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
   --color-primary: #0f9bd7;
-  --color-primary-glow: rgba(15, 155, 215, 0.2);
+  --color-primary-glow: rgba(15, 155, 215, 0.12);
   --color-accent: #f97316;
-  --color-accent-glow: rgba(249, 115, 22, 0.2);
-  --color-text: #d4e8f0;
-  --color-text-muted: #5a7a90;
+  --color-accent-glow: rgba(249, 115, 22, 0.12);
+  --color-text: #1a202c;
+  --color-text-muted: #64748b;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-pixel: 'Press Start 2P', cursive;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --radius: 0.25rem;
-  --shadow-glow: 0 0 40px var(--color-primary-glow);
-  --shadow-orange-glow: 0 0 40px var(--color-accent-glow);
+  --radius: 0.5rem;
+  --shadow-glow: 0 4px 20px var(--color-primary-glow);
+  --shadow-orange-glow: 0 4px 20px var(--color-accent-glow);
 }
 
 html {
@@ -31,10 +32,6 @@ html {
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg);
-  background-image:
-    linear-gradient(rgba(15, 155, 215, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 155, 215, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
   color: var(--color-text);
   min-height: 100vh;
   font-synthesis: none;

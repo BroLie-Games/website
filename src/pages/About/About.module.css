@@ -12,41 +12,33 @@
 
 .eyebrow {
   display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-family: var(--font-mono);
   color: var(--color-primary);
   background: var(--color-primary-glow);
-  border: 1px solid rgba(15, 155, 215, 0.35);
-  padding: 0.3rem 0.9rem;
-  border-radius: 999px;
+  border: 1px solid rgba(15, 155, 215, 0.25);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius);
   margin-bottom: 1.5rem;
 }
 
 .heading {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-family: var(--font-pixel);
+  font-size: clamp(1rem, 3vw, 1.75rem);
+  font-weight: 400;
+  line-height: 2;
   margin-bottom: 1.25rem;
 }
 
 .highlight {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary) 0%,
-    #5bd4f0 50%,
-    var(--color-accent) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-accent);
 }
 
 .lead {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
   max-width: 600px;
   margin: 0 auto;
@@ -65,7 +57,7 @@
 
 .profileCard {
   position: relative;
-  background: var(--color-surface);
+  background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 2rem;
@@ -73,37 +65,9 @@
   flex-direction: column;
   gap: 1.25rem;
   transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-
-  /* corner bracket top-left */
-  &::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    width: 16px;
-    height: 16px;
-    border-top: 2px solid currentColor;
-    border-left: 2px solid currentColor;
-    border-radius: var(--radius) 0 0 0;
-  }
-
-  /* corner bracket bottom-right */
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    right: -1px;
-    width: 16px;
-    height: 16px;
-    border-bottom: 2px solid currentColor;
-    border-right: 2px solid currentColor;
-    border-radius: 0 0 var(--radius) 0;
-  }
 }
 
 .cardBlue {
-  color: var(--color-primary);
-
   &:hover {
     border-color: var(--color-primary);
     box-shadow: var(--shadow-glow);
@@ -112,8 +76,6 @@
 }
 
 .cardOrange {
-  color: var(--color-accent);
-
   &:hover {
     border-color: var(--color-accent);
     box-shadow: var(--shadow-orange-glow);
@@ -135,36 +97,60 @@
   width: 3rem;
   height: 3rem;
   border-radius: var(--radius);
-  background: currentColor;
-  color: var(--color-bg);
-  font-family: var(--font-mono);
+  font-family: var(--font-pixel);
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 400;
   flex-shrink: 0;
 }
 
+.cardBlue .avatar {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.cardOrange .avatar {
+  background: var(--color-accent);
+  color: #fff;
+}
+
 .profileName {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  font-weight: 400;
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  line-height: 1.6;
 }
 
 .profileRole {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-family: var(--font-mono);
   color: var(--color-text-muted);
 }
 
-.handle {
-  margin-left: auto;
-  font-size: 0.75rem;
-  font-family: var(--font-mono);
+.photoPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  aspect-ratio: 4 / 3;
+  background: var(--color-bg-alt);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius);
+}
+
+.photoIcon {
+  font-size: 1.5rem;
+  opacity: 0.4;
+}
+
+.photoText {
+  font-family: var(--font-pixel);
+  font-size: 0.4375rem;
   color: var(--color-text-muted);
-  opacity: 0.7;
 }
 
 .profileBio {
@@ -173,43 +159,60 @@
   line-height: 1.7;
 }
 
-.traitList {
+.favGames {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.favLabel {
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+}
+
+.gameList {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-top: auto;
 }
 
-.trait {
-  font-size: 0.75rem;
-  font-weight: 600;
-  font-family: var(--font-mono);
-  color: currentColor;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
+.gameTag {
+  font-family: var(--font-pixel);
+  font-size: 0.4375rem;
+  font-weight: 400;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius);
   border: 1px solid;
+  line-height: 1.6;
 }
 
-.cardBlue .trait {
-  background: rgba(15, 155, 215, 0.12);
-  border-color: rgba(15, 155, 215, 0.3);
+.cardBlue .gameTag {
+  color: var(--color-primary);
+  background: rgba(15, 155, 215, 0.08);
+  border-color: rgba(15, 155, 215, 0.2);
 }
 
-.cardOrange .trait {
-  background: rgba(249, 115, 22, 0.12);
-  border-color: rgba(249, 115, 22, 0.3);
+.cardOrange .gameTag {
+  color: var(--color-accent);
+  background: rgba(249, 115, 22, 0.08);
+  border-color: rgba(249, 115, 22, 0.2);
 }
 
 /* ── Origin Story ── */
 .storySection {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 1.5rem 3rem;
+  padding: 1rem 1.5rem 6rem;
 }
 
 .storyCard {
-  background: var(--color-surface);
+  background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
   border-left: 3px solid var(--color-primary);
   border-radius: 0 var(--radius) var(--radius) 0;
@@ -220,19 +223,20 @@
 }
 
 .storyLabel {
-  font-size: 0.6875rem;
-  font-weight: 700;
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-family: var(--font-mono);
   color: var(--color-primary);
 }
 
 .storyHeading {
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-family: var(--font-pixel);
+  font-size: 0.875rem;
+  font-weight: 400;
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  line-height: 1.6;
 }
 
 .storyBody {
@@ -245,43 +249,4 @@
     color: var(--color-text);
     font-style: italic;
   }
-}
-
-/* ── Stats ── */
-.statsSection {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem 6rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.statCard {
-  background: var(--color-surface);
-  padding: 1.75rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  border: 1px solid var(--color-border);
-  transition: background 0.2s;
-
-  &:hover {
-    background: rgba(15, 155, 215, 0.05);
-  }
-}
-
-.statValue {
-  font-size: 1.125rem;
-  font-weight: 700;
-  font-family: var(--font-mono);
-  color: var(--color-primary);
-}
-
-.statLabel {
-  font-size: 0.8125rem;
-  color: var(--color-text-muted);
 }

@@ -1,26 +1,54 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Contact.module.css';
 
-type FormState = 'idle' | 'sending' | 'sent';
+const socials = [
+  {
+    label: 'Instagram',
+    handle: '@broliegames',
+    href: 'https://instagram.com/broliegames',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="5"/>
+        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'YouTube',
+    handle: '@BroLieGames',
+    href: 'https://youtube.com/@BroLieGames',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/>
+        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Twitch',
+    handle: 'broliegames',
+    href: 'https://twitch.tv/broliegames',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Email',
+    handle: 'hello@broliegames.com',
+    href: 'mailto:hello@broliegames.com',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </svg>
+    ),
+  },
+];
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [state, setState] = useState<FormState>('idle');
-
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-  }
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setState('sending');
-    // Simulate async submission
-    setTimeout(() => setState('sent'), 1200);
-  }
-
   return (
     <main className={styles.main}>
       <motion.section
@@ -31,105 +59,33 @@ export default function Contact() {
       >
         <span className={styles.eyebrow}>Get in Touch</span>
         <h1 className={styles.heading}>
-          Say{' '}
-          <span className={styles.highlight}>hello</span>
+          Let's{' '}
+          <span className={styles.highlight}>connect</span>
         </h1>
         <p className={styles.lead}>
-          Interested in our work? Want to collaborate? Or just want to talk
-          about robots? We'd love to hear from you.
+          Want to follow our journey, chat about games, or just say hi?
+          Find us on any of these platforms.
         </p>
       </motion.section>
 
-      <section className={styles.formSection}>
-        {state === 'sent' ? (
-          <motion.div
-            className={styles.successBox}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
+      <section className={styles.contactGrid}>
+        {socials.map((s, i) => (
+          <motion.a
+            key={s.label}
+            href={s.href}
+            target={s.href.startsWith('mailto:') ? undefined : '_blank'}
+            rel={s.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+            className={styles.contactCard}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.5 }}
           >
-            <span className={styles.successIcon}>✓</span>
-            <h2 className={styles.successTitle}>Message received!</h2>
-            <p className={styles.successBody}>
-              Thanks for reaching out. We'll get back to you as soon as the
-              signal cuts through the static.
-            </p>
-            <button
-              className={styles.resetBtn}
-              onClick={() => {
-                setForm({ name: '', email: '', message: '' });
-                setState('idle');
-              }}
-            >
-              Send another
-            </button>
-          </motion.div>
-        ) : (
-          <motion.form
-            className={styles.form}
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <div className={styles.row}>
-              <div className={styles.field}>
-                <label htmlFor="name" className={styles.label}>
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  placeholder="Your name"
-                  className={styles.input}
-                  value={form.name}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className={styles.field}>
-                <label htmlFor="email" className={styles.label}>
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="you@example.com"
-                  className={styles.input}
-                  value={form.email}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            <div className={styles.field}>
-              <label htmlFor="message" className={styles.label}>
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={6}
-                placeholder="Tell us what's on your mind…"
-                className={styles.textarea}
-                value={form.message}
-                onChange={handleChange}
-              />
-            </div>
-
-            <button
-              type="submit"
-              className={styles.submitBtn}
-              disabled={state === 'sending'}
-            >
-              {state === 'sending' ? 'Sending…' : 'Send message'}
-            </button>
-          </motion.form>
-        )}
+            <span className={styles.contactIcon}>{s.icon}</span>
+            <span className={styles.contactLabel}>{s.label}</span>
+            <span className={styles.contactHandle}>{s.handle}</span>
+          </motion.a>
+        ))}
       </section>
     </main>
   );
