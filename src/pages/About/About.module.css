@@ -148,10 +148,9 @@
 }
 
 .photoText {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
   font-family: var(--font-pixel);
   font-size: 0.4375rem;
+  color: var(--color-text-muted);
 }
 
 .profileBio {
