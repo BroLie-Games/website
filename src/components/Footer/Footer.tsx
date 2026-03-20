@@ -9,7 +9,7 @@ export default function Footer() {
         <p className={styles.copy}>
           © {year} BroLie Games — All rights reserved
         </p>
-        <p className={styles.tagline}>crafting worlds, one robot at a time</p>
+        <p className={styles.tagline}>making games, having fun</p>
       </div>
     </footer>
   );

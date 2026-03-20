@@ -18,6 +18,7 @@
   --color-text: #d4e8f0;
   --color-text-muted: #5a7a90;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-pixel: 'Press Start 2P', cursive;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --radius: 0.25rem;
   --shadow-glow: 0 0 40px var(--color-primary-glow);

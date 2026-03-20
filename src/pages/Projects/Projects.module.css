@@ -11,15 +11,16 @@
 
 .eyebrow {
   display: inline-block;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--font-pixel);
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-primary);
   background: var(--color-primary-glow);
   border: 1px solid rgba(15, 155, 215, 0.35);
-  padding: 0.3rem 0.9rem;
-  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
   margin-bottom: 1.5rem;
 }
 
@@ -34,8 +35,8 @@
 .highlight {
   background: linear-gradient(
     135deg,
-    var(--color-primary) 0%,
-    #5bd4f0 100%
+    var(--color-accent) 0%,
+    #fbbf24 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -48,39 +49,57 @@
   line-height: 1.7;
 }
 
-.grid {
+/* ── Featured Project ── */
+.featured {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1.5rem 6rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 2rem;
-}
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
 
-.card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-
-  &:hover {
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-glow);
-    transform: translateY(-4px);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 }
 
-.cardHeader {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+.featuredImage {
+  border-radius: var(--radius);
+  overflow: hidden;
 }
 
-.cardMeta {
+.imagePlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 4rem 2rem;
+  background: var(--color-surface);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius);
+  min-height: 300px;
+}
+
+.placeholderIcon {
+  font-size: 3rem;
+}
+
+.placeholderText {
+  font-family: var(--font-pixel);
+  font-size: 0.5625rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.featuredInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.metaBadges {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -111,8 +130,8 @@
   border-radius: 999px;
 }
 
-.cardTitle {
-  font-size: 1.5rem;
+.featuredTitle {
+  font-size: 2rem;
   font-weight: 800;
   color: var(--color-text);
   letter-spacing: -0.03em;
@@ -123,49 +142,57 @@
   color: var(--color-text-muted);
 }
 
-.summary {
+.featuredSummary {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
   line-height: 1.7;
 }
 
-.loreBox {
-  background: var(--color-bg);
-  border-left: 3px solid var(--color-primary);
-  border-radius: 0 0.5rem 0.5rem 0;
-  padding: 1rem 1.25rem;
-}
-
-.loreLabel {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-primary);
-  margin-bottom: 0.5rem;
-}
-
-.lore {
-  font-size: 0.875rem;
+.featuredDescription {
+  font-size: 0.9375rem;
   color: var(--color-text-muted);
   line-height: 1.7;
-  font-style: italic;
 }
 
-.tags {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: auto;
-}
-
-.tag {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
-  background: var(--color-bg-alt);
+.ctaSection {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ctaText {
+  font-family: var(--font-pixel);
+  font-size: 0.625rem;
+  color: var(--color-accent);
+  line-height: 1.6;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: border-color 0.2s, transform 0.2s;
+
+  &:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
 }

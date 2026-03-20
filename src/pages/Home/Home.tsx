@@ -16,12 +16,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <section className={styles.hero}>
-        <motion.div
-          className={styles.glowOrb}
-          animate={{ scale: [1, 1.08, 1], opacity: [0.6, 0.9, 0.6] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        />
-
+        <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <motion.span
             className={styles.eyebrow}
@@ -30,7 +25,7 @@ export default function Home() {
             animate="visible"
             variants={fadeUp}
           >
-            Indie Game Studio
+            🎮 Indie Game Studio
           </motion.span>
 
           <motion.h1
@@ -40,9 +35,9 @@ export default function Home() {
             animate="visible"
             variants={fadeUp}
           >
-            We build worlds
+            We make games
             <br />
-            <span className={styles.highlight}>worth exploring.</span>
+            <span className={styles.highlight}>we'd love to play.</span>
           </motion.h1>
 
           <motion.p
@@ -52,9 +47,10 @@ export default function Home() {
             animate="visible"
             variants={fadeUp}
           >
-            BroLie Games is a small indie studio obsessed with narrative-driven
-            puzzle games. We love desolate aesthetics, morally complex robots,
-            and questions without easy answers.
+            BroLie Games is Robin Heij and Thomas Liebregts — two friends
+            who share a love for simple, fun games inspired by the titles
+            that shaped them. We're building what we enjoy, one project at
+            a time.
           </motion.p>
 
           <motion.div
@@ -77,19 +73,19 @@ export default function Home() {
       <section className={styles.features}>
         {[
           {
-            icon: '🤖',
-            title: 'Robot Protagonists',
-            body: 'Our heroes run on rust and reluctance — machines questioning their own directives.',
+            icon: '🕹️',
+            title: 'Fun & Engaging Gameplay',
+            body: 'We focus on games that are genuinely fun to play — simple to pick up, satisfying to master.',
           },
           {
-            icon: '🧩',
-            title: 'Puzzle-Driven',
-            body: 'Every challenge is woven into the environment. No tutorials, just discovery.',
+            icon: '📚',
+            title: 'Learning Through Creation',
+            body: 'Every project is a chance to grow. We learn by doing, experimenting, and shipping real games.',
           },
           {
-            icon: '🌑',
-            title: 'Desolate Worlds',
-            body: "Silent, overgrown, and hauntingly beautiful. There's always something left behind.",
+            icon: '🛠️',
+            title: 'Fully Self-Made',
+            body: 'From concept to code to art — everything is built by us. No templates, no shortcuts, just passion.',
           },
         ].map((f, i) => (
           <motion.div
