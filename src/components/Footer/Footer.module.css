@@ -1,0 +1,32 @@
+.footer {
+  margin-top: auto;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.copy {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.tagline {
+  font-size: 0.8125rem;
+  color: var(--color-border);
+  font-style: italic;
+}
