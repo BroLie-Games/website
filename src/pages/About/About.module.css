@@ -13,40 +13,32 @@
 .eyebrow {
   display: inline-block;
   font-family: var(--font-pixel);
-  font-size: 0.625rem;
+  font-size: 0.5rem;
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-primary);
   background: var(--color-primary-glow);
-  border: 1px solid rgba(15, 155, 215, 0.35);
-  padding: 0.4rem 1rem;
-  border-radius: 4px;
+  border: 1px solid rgba(15, 155, 215, 0.25);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius);
   margin-bottom: 1.5rem;
 }
 
 .heading {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-family: var(--font-pixel);
+  font-size: clamp(1rem, 3vw, 1.75rem);
+  font-weight: 400;
+  line-height: 2;
   margin-bottom: 1.25rem;
 }
 
 .highlight {
-  background: linear-gradient(
-    135deg,
-    var(--color-accent) 0%,
-    #fbbf24 50%,
-    var(--color-primary) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-accent);
 }
 
 .lead {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
   max-width: 600px;
   margin: 0 auto;
@@ -65,7 +57,7 @@
 
 .profileCard {
   position: relative;
-  background: var(--color-surface);
+  background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 2rem;
@@ -76,8 +68,6 @@
 }
 
 .cardBlue {
-  color: var(--color-primary);
-
   &:hover {
     border-color: var(--color-primary);
     box-shadow: var(--shadow-glow);
@@ -86,8 +76,6 @@
 }
 
 .cardOrange {
-  color: var(--color-accent);
-
   &:hover {
     border-color: var(--color-accent);
     box-shadow: var(--shadow-orange-glow);
@@ -109,24 +97,34 @@
   width: 3rem;
   height: 3rem;
   border-radius: var(--radius);
-  background: currentColor;
-  color: var(--color-bg);
   font-family: var(--font-pixel);
   font-size: 0.875rem;
   font-weight: 400;
   flex-shrink: 0;
 }
 
+.cardBlue .avatar {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.cardOrange .avatar {
+  background: var(--color-accent);
+  color: #fff;
+}
+
 .profileName {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  font-weight: 400;
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  line-height: 1.6;
 }
 
 .profileRole {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
@@ -138,20 +136,22 @@
   justify-content: center;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 2rem;
-  background: var(--color-bg);
+  aspect-ratio: 4 / 3;
+  background: var(--color-bg-alt);
   border: 2px dashed var(--color-border);
   border-radius: var(--radius);
 }
 
 .photoIcon {
   font-size: 1.5rem;
+  opacity: 0.4;
 }
 
 .photoText {
   font-size: 0.75rem;
   color: var(--color-text-muted);
   font-family: var(--font-pixel);
+  font-size: 0.4375rem;
 }
 
 .profileBio {
@@ -169,7 +169,7 @@
 
 .favLabel {
   font-family: var(--font-pixel);
-  font-size: 0.5625rem;
+  font-size: 0.5rem;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -184,22 +184,25 @@
 }
 
 .gameTag {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: currentColor;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
+  font-family: var(--font-pixel);
+  font-size: 0.4375rem;
+  font-weight: 400;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius);
   border: 1px solid;
+  line-height: 1.6;
 }
 
 .cardBlue .gameTag {
-  background: rgba(15, 155, 215, 0.12);
-  border-color: rgba(15, 155, 215, 0.3);
+  color: var(--color-primary);
+  background: rgba(15, 155, 215, 0.08);
+  border-color: rgba(15, 155, 215, 0.2);
 }
 
 .cardOrange .gameTag {
-  background: rgba(249, 115, 22, 0.12);
-  border-color: rgba(249, 115, 22, 0.3);
+  color: var(--color-accent);
+  background: rgba(249, 115, 22, 0.08);
+  border-color: rgba(249, 115, 22, 0.2);
 }
 
 /* ── Origin Story ── */
@@ -210,9 +213,9 @@
 }
 
 .storyCard {
-  background: var(--color-surface);
+  background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-accent);
+  border-left: 3px solid var(--color-primary);
   border-radius: 0 var(--radius) var(--radius) 0;
   padding: 2.5rem 2rem;
   display: flex;
@@ -222,18 +225,19 @@
 
 .storyLabel {
   font-family: var(--font-pixel);
-  font-size: 0.5625rem;
+  font-size: 0.5rem;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--color-accent);
+  color: var(--color-primary);
 }
 
 .storyHeading {
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-family: var(--font-pixel);
+  font-size: 0.875rem;
+  font-weight: 400;
   color: var(--color-text);
-  letter-spacing: -0.02em;
+  line-height: 1.6;
 }
 
 .storyBody {
