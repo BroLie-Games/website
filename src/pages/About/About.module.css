@@ -90,27 +90,12 @@
   flex-wrap: wrap;
 }
 
-.avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: var(--radius);
-  font-family: var(--font-pixel);
-  font-size: 0.875rem;
-  font-weight: 400;
+.profilePhoto {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  object-fit: cover;
   flex-shrink: 0;
-}
-
-.cardBlue .avatar {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-.cardOrange .avatar {
-  background: var(--color-accent);
-  color: #fff;
 }
 
 .profileName {
@@ -127,29 +112,6 @@
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-text-muted);
-}
-
-.photoPlaceholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.5rem;
-  aspect-ratio: 4 / 3;
-  background: var(--color-bg-alt);
-  border: 2px dashed var(--color-border);
-  border-radius: var(--radius);
-}
-
-.photoIcon {
-  font-size: 1.5rem;
-  opacity: 0.4;
-}
-
-.photoText {
-  font-family: var(--font-pixel);
-  font-size: 0.4375rem;
   color: var(--color-text-muted);
 }
 

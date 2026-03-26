@@ -17,6 +17,7 @@ const profiles = [
     name: 'Robin Heij',
     role: 'Co-Founder',
     accentClass: 'cardBlue',
+    photo: '/robin.jpeg',
     bio: `Robin brings a sharp eye for detail and a love for well-crafted experiences. He's the kind of person who notices when a game's UI feels just right — or just off. At BroLie Games, he handles the visuals and has strong opinions about making things look and feel great. When he's not working on games, he's probably playing one.`,
     favoriteGames: ['The Last of Us', 'Factorio', 'Skyrim'],
     initial: 'R',
@@ -26,6 +27,7 @@ const profiles = [
     name: 'Thomas Liebregts',
     role: 'Co-Founder',
     accentClass: 'cardOrange',
+    photo: '/thomas.png',
     bio: `Thomas is driven by curiosity and a passion for building things from scratch. He loves diving deep into systems, figuring out how everything connects, and occasionally proposing ideas that are "maybe a bit too ambitious." At BroLie Games, he builds the systems that make things work and always pushes for one more feature.`,
     favoriteGames: ['God of War', 'Hollow Knight', 'Paw Patrol'],
     initial: 'T',
@@ -71,16 +73,15 @@ export default function About() {
             transition={{ delay: i * 0.15, duration: 0.55 }}
           >
             <div className={styles.profileHeader}>
-              <div className={styles.avatar}>{p.initial}</div>
+              <img
+                className={styles.profilePhoto}
+                src={p.photo}
+                alt={p.name}
+              />
               <div>
                 <h2 className={styles.profileName}>{p.name}</h2>
                 <span className={styles.profileRole}>{p.role}</span>
               </div>
-            </div>
-
-            <div className={styles.photoPlaceholder}>
-              <span className={styles.photoIcon}>📷</span>
-              <span className={styles.photoText}>Photo coming soon</span>
             </div>
 
             <p className={styles.profileBio}>{p.bio}</p>
