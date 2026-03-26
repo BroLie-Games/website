@@ -1,0 +1,41 @@
+.content h2 {
+  font-family: var(--font-pixel);
+  font-size: 1.25rem;
+  color: var(--color-text);
+  margin: 2rem 0 0.75rem;
+}
+
+.content h3 {
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  color: var(--color-text);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.content p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin: 0 0 1rem;
+}
+
+.content ul,
+.content ol {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  padding-left: 1.5rem;
+  margin: 0 0 1rem;
+}
+
+.content li {
+  margin-bottom: 0.35rem;
+}
+
+.content img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin: 1rem 0;
+}

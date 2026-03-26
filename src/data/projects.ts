@@ -11,6 +11,10 @@ export interface Project {
   lore: string;
 }
 
+export function getProjectBySlug(slug: string): Project | undefined {
+  return projects.find((p) => p.slug === slug);
+}
+
 export const projects: Project[] = [
   {
     id: 'autonomouslee',

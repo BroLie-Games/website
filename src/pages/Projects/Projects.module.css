@@ -128,11 +128,22 @@
 }
 
 .featuredTitle {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+
+  &:hover .featuredTitleText {
+    color: var(--color-primary);
+  }
+}
+
+.featuredTitleText {
   font-family: var(--font-pixel);
   font-size: 1.25rem;
   font-weight: 400;
   color: var(--color-text);
   line-height: 1.6;
+  margin: 0;
 }
 
 .genre {
